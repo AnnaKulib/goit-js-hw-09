@@ -31,7 +31,7 @@ let timerId = null;
 function onStartBtnClick() {
 
     timerId = setInterval(() => {
-    console.log('start');
+    // console.log('start');
 
     const newData = new Date(); 
     const finalData = new Date(datetimeInput.value);
@@ -42,13 +42,16 @@ function onStartBtnClick() {
       }
 
     // addLeadingZero(value)
-    console.log(result.days, result.hours, result.minutes, result.seconds);
-    console.log(Object.values(result))
+    // console.log(result.days, result.hours, result.minutes, result.seconds);
+    // console.log(Object.values(result))
     document.querySelector('[data-days]').textContent = addLeadingZero(result.days);
     document.querySelector('[data-hours]').textContent = addLeadingZero(result.hours);
     document.querySelector('[data-minutes]').textContent = addLeadingZero(result.minutes);
     document.querySelector('[data-seconds]').textContent = addLeadingZero(result.seconds);
       }, 1000);
+      
+    datetimeInput.disabled = true;
+    startBtn.disabled = true;
 }
 
 function addLeadingZero(value) {
@@ -74,6 +77,6 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+// console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+// console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
+// console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
