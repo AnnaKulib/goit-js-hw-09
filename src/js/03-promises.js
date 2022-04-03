@@ -40,11 +40,6 @@ function onSubmitClick(event) {
   for (let i = 1; i <= Number(amount.value); i++) {
     createPromise(i, firstDelayValue)
     firstDelayValue += Number(delayStep.value);
-    // console.log(firstDelay.value);
-    // console.log(delayStep.value);
-    // console.log(amount.value);
   }
-    firstDelay.value = '';
-    delayStep.value = '';
-    amount.value = '';
+    form.reset();
 };
