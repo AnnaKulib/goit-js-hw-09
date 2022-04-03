@@ -32,13 +32,19 @@ const logError = ({position, delay}) => {
 function onSubmitClick(event) {
   event.preventDefault();
 
-  const firstDelay = event.currentTarget.elements.delay;
-  const delayStep = event.currentTarget.elements.step;
-  const amount = event.currentTarget.elements.amount;
+  let firstDelay = event.currentTarget.elements.delay;
+  let delayStep = event.currentTarget.elements.step;
+  let amount = event.currentTarget.elements.amount;
   let firstDelayValue = Number(firstDelay.value);
 
-  for (let i = 0; i <= Number(amount.value); i++) {
+  for (let i = 1; i <= Number(amount.value); i++) {
     createPromise(i, firstDelayValue)
     firstDelayValue += Number(delayStep.value);
+    // console.log(firstDelay.value);
+    // console.log(delayStep.value);
+    // console.log(amount.value);
   }
+    firstDelay.value = '';
+    delayStep.value = '';
+    amount.value = '';
 };
